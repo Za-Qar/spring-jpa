@@ -1,5 +1,6 @@
 package com.qarout.conference.service;
 
+import java.util.*;
 import javax.transaction.Transactional;
 
 import com.qarout.conference.model.Course;
@@ -30,5 +31,11 @@ public class RegistrationServiceImpl implements RegistrationService
         courseRepository.save(course);
 
         return  registration;
+    }
+
+    @Override
+    public List<Registration> findAll()
+    {
+        return registrationRepository.findAll();
     }
 }

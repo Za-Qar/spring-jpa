@@ -1,5 +1,6 @@
 package com.qarout.conference.respository;
 
+import java.util.*;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -17,5 +18,12 @@ public class RegistrationRepositoryImpl implements RegistrationRepository
     public Registration addRegistration(Registration registration) {
         entityManager.persist(registration);
         return registration;
+    }
+
+    @Override
+    public List<Registration> findAll()
+    {
+        List<Registration> registrations = entityManager.createQuery("Select r from Registration r").getResultList();
+        return registrations;
     }
 }
