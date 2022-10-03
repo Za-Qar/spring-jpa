@@ -3,6 +3,7 @@ package com.qarout.conference.controller;
 import java.util.*;
 
 import com.qarout.conference.model.Registration;
+import com.qarout.conference.model.RegistrationReport;
 import com.qarout.conference.service.RegistrationService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,13 @@ public class RegistrationController
     List<Registration> getRegistrations() {
         List<Registration> registrations = registrationService.findAll();
         return registrations;
+    }
+
+    @GetMapping("registration-reports")
+    public @ResponseBody
+    List<RegistrationReport> getRegistrationReports() {
+        List<RegistrationReport> registrationReport = registrationService.findAllReports();
+        return registrationReport;
     }
 
     @PostMapping("registration")

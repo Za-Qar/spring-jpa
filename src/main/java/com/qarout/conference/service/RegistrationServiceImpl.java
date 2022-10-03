@@ -5,6 +5,7 @@ import javax.transaction.Transactional;
 
 import com.qarout.conference.model.Course;
 import com.qarout.conference.model.Registration;
+import com.qarout.conference.model.RegistrationReport;
 import com.qarout.conference.respository.CourseRepository;
 import com.qarout.conference.respository.RegistrationRepository;
 
@@ -37,5 +38,11 @@ public class RegistrationServiceImpl implements RegistrationService
     public List<Registration> findAll()
     {
         return registrationRepository.findAll();
+    }
+
+    @Override
+    public List<RegistrationReport> findAllReports()
+    {
+        return registrationRepository.findAllReports();
     }
 }
